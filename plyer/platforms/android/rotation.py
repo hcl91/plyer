@@ -6,7 +6,7 @@ from math import pi
 Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
-
+WindowManager = autoclass('android.view.WindowManager')
 
 class RotationSensorListener(PythonJavaClass):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
@@ -32,6 +32,12 @@ class RotationSensorListener(PythonJavaClass):
 
     @java_method('(Landroid/hardware/SensorEvent;)V')
     def onSensorChanged(self, event):
+        
+        worldAxisForDeviceAxisX = SensorManager.AXIS_X
+        worldAxisForDeviceAxisY = SensorManager.AXIS_Z
+        
+        screenRotation = WindowManager.getDefaultDisplay().getRotation();
+        
         SensorManager.getRotationMatrixFromVector(self.rMat, event.values[:3])
         # values_ = [azimuth, pitch, roll]
         values_ = SensorManager.getOrientation(self.rMat, self.orientation)[:3]
