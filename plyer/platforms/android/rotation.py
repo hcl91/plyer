@@ -19,7 +19,9 @@ class RotationSensorListener(PythonJavaClass):
         self.sensor = self.SensorManager.getDefaultSensor(
             Sensor.TYPE_ROTATION_VECTOR)
         self.WindowManager = cast('android.view.WindowManager',activity.getSystemService(Context.WINDOW_SERVICE))
-
+        self.Display = self.WindowManager.getDefaultDisplay()
+        print "HC disp {}".format(self.Display)
+        
         # self.value = None
         self.values = [None, None, None]
         self.orientation = [0., 0., 0.]
@@ -41,7 +43,7 @@ class RotationSensorListener(PythonJavaClass):
         worldAxisForDeviceAxisX = SensorManager.AXIS_X
         worldAxisForDeviceAxisY = SensorManager.AXIS_Z
         
-        screenRotation = self.WindowManager.getDefaultDisplay().getRotation();
+        screenRotation = self.Display.getRotation();
         print "HC {}".format(screenRotation)
   
         #Adjust the rotation matrix for the device orientation
