@@ -42,6 +42,7 @@ class RotationSensorListener(PythonJavaClass):
         worldAxisForDeviceAxisY = SensorManager.AXIS_Z
         
         screenRotation = self.WindowManager.getDefaultDisplay().getRotation();
+        print "HC {}".format(screenRotation)
   
         #Adjust the rotation matrix for the device orientation
    
