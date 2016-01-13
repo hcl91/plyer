@@ -7,6 +7,7 @@ Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
 WindowManager = autoclass('android.view.WindowManager')
+Surface = autoclass('android.view.Surface')
 
 class RotationSensorListener(PythonJavaClass):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
@@ -17,12 +18,14 @@ class RotationSensorListener(PythonJavaClass):
                                   activity.getSystemService(Context.SENSOR_SERVICE))
         self.sensor = self.SensorManager.getDefaultSensor(
             Sensor.TYPE_ROTATION_VECTOR)
+        self.WindowManager = cast('android.view.WindowManager',activity.getSystemService(Context.WINDOW_SERVICE))
 
         # self.value = None
         self.values = [None, None, None]
         self.orientation = [0., 0., 0.]
         self.rMat = [0.] * 9
-
+        self.adjustedRotationMatrix = [0.] * 9
+        
     def enable(self):
         self.SensorManager.registerListener(self, self.sensor,
                                             SensorManager.SENSOR_DELAY_NORMAL)
@@ -33,18 +36,38 @@ class RotationSensorListener(PythonJavaClass):
     @java_method('(Landroid/hardware/SensorEvent;)V')
     def onSensorChanged(self, event):
         
+        SensorManager.getRotationMatrixFromVector(self.rMat, event.values[:3])
+        
         worldAxisForDeviceAxisX = SensorManager.AXIS_X
         worldAxisForDeviceAxisY = SensorManager.AXIS_Z
         
-        screenRotation = WindowManager.getDefaultDisplay().getRotation();
+        screenRotation = self.WindowManager.getDefaultDisplay().getRotation();
+  
+        #Adjust the rotation matrix for the device orientation
+   
+        if screenRotation == Surface.ROTATION_0 :
+            worldAxisForDeviceAxisX = SensorManager.AXIS_X
+            worldAxisForDeviceAxisY = SensorManager.AXIS_Z
+        elif screenRotation == Surface.ROTATION_90 : 
+            worldAxisForDeviceAxisX = SensorManager.AXIS_Z
+            worldAxisForDeviceAxisY = SensorManager.AXIS_MINUS_X
+        elif screenRotation == Surface.ROTATION_180 : 
+            worldAxisForDeviceAxisX = SensorManager.AXIS_MINUS_X
+            worldAxisForDeviceAxisY = SensorManager.AXIS_MINUS_Z
+        elif screenRotation == Surface.ROTATION_270 :
+            worldAxisForDeviceAxisX = SensorManager.AXIS_MINUS_Z
+            worldAxisForDeviceAxisY = SensorManager.AXIS_X
+            
         
-        SensorManager.getRotationMatrixFromVector(self.rMat, event.values[:3])
+        SensorManager.remapCoordinateSystem(self.rMat, worldAxisForDeviceAxisX,
+        worldAxisForDeviceAxisY, self.adjustedRotationMatrix)
+    
         # values_ = [azimuth, pitch, roll]
-        values_ = SensorManager.getOrientation(self.rMat, self.orientation)[:3]
-        values_[0] = (values_[0] * 180 / pi + 360) % 360
-        values_[1] = values_[1] * 180 / pi
-        values_[2] = values_[2] * 180 / pi
-        self.values = values_
+        SensorManager.getOrientation(self.adjustedRotationMatrix, self.orientation)
+        self.orientation[0] = (self.orientation[0] * 180 / pi + 360) % 360
+        self.orientation[1] = self.orientation[1] * 180 / pi
+        self.orientation[2] = self.orientation[2] * 180 / pi
+        self.values = self.orientation
 
     @java_method('(Landroid/hardware/Sensor;I)V')
     def onAccuracyChanged(self, sensor, accuracy):
