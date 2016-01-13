@@ -51,15 +51,15 @@ class RotationSensorListener(PythonJavaClass):
             worldAxisForDeviceAxisX = SensorManager.AXIS_X
             worldAxisForDeviceAxisY = SensorManager.AXIS_Z
         elif screenRotation == Surface.ROTATION_90 :
-            print 'HC: Rot90' 
+
             worldAxisForDeviceAxisX = SensorManager.AXIS_Z
             worldAxisForDeviceAxisY = SensorManager.AXIS_MINUS_X
         elif screenRotation == Surface.ROTATION_180 :
-            print 'HC: Rot180' 
+
             worldAxisForDeviceAxisX = SensorManager.AXIS_MINUS_X
             worldAxisForDeviceAxisY = SensorManager.AXIS_MINUS_Z
         elif screenRotation == Surface.ROTATION_270 :
-            print 'HC: Rot270'
+
             worldAxisForDeviceAxisX = SensorManager.AXIS_MINUS_Z
             worldAxisForDeviceAxisY = SensorManager.AXIS_X
             
