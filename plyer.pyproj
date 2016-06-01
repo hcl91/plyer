@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a504ec1e-9da8-4c3d-bcf9-6ad603ffcea7}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>setup.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="docs\source\conf.py" />
+    <Compile Include="examples\accelerometer\basic\main.py" />
+    <Compile Include="examples\accelerometer\using_graph\libs\garden\garden.graph\__init__.py" />
+    <Compile Include="examples\accelerometer\using_graph\libs\libs\garden\garden.graph\__init__.py" />
+    <Compile Include="examples\accelerometer\using_graph\main.py" />
+    <Compile Include="examples\audio\main.py" />
+    <Compile Include="examples\compass\main.py" />
+    <Compile Include="examples\email\main.py" />
+    <Compile Include="examples\gps\main.py" />
+    <Compile Include="examples\notification\main.py" />
+    <Compile Include="examples\orientation\main.py" />
+    <Compile Include="examples\rotation\main.py" />
+    <Compile Include="examples\sms\main.py" />
+    <Compile Include="examples\text2speech\main.py" />
+    <Compile Include="examples\vibrator\main.py" />
+    <Compile Include="plyer\compat.py" />
+    <Compile Include="plyer\facades\accelerometer.py" />
+    <Compile Include="plyer\facades\audio.py" />
+    <Compile Include="plyer\facades\battery.py" />
+    <Compile Include="plyer\facades\camera.py" />
+    <Compile Include="plyer\facades\compass.py" />
+    <Compile Include="plyer\facades\email.py" />
+    <Compile Include="plyer\facades\filechooser.py" />
+    <Compile Include="plyer\facades\gps.py" />
+    <Compile Include="plyer\facades\gyroscope.py" />
+    <Compile Include="plyer\facades\irblaster.py" />
+    <Compile Include="plyer\facades\notification.py" />
+    <Compile Include="plyer\facades\orientation.py" />
+    <Compile Include="plyer\facades\rotation.py" />
+    <Compile Include="plyer\facades\sms.py" />
+    <Compile Include="plyer\facades\tts.py" />
+    <Compile Include="plyer\facades\uniqueid.py" />
+    <Compile Include="plyer\facades\vibrator.py" />
+    <Compile Include="plyer\facades\__init__.py" />
+    <Compile Include="plyer\platforms\android\accelerometer.py" />
+    <Compile Include="plyer\platforms\android\audio.py" />
+    <Compile Include="plyer\platforms\android\battery.py" />
+    <Compile Include="plyer\platforms\android\camera.py" />
+    <Compile Include="plyer\platforms\android\compass.py" />
+    <Compile Include="plyer\platforms\android\email.py" />
+    <Compile Include="plyer\platforms\android\gps.py" />
+    <Compile Include="plyer\platforms\android\gyroscope.py" />
+    <Compile Include="plyer\platforms\android\irblaster.py" />
+    <Compile Include="plyer\platforms\android\notification.py" />
+    <Compile Include="plyer\platforms\android\orientation.py" />
+    <Compile Include="plyer\platforms\android\rotation.py" />
+    <Compile Include="plyer\platforms\android\sms.py" />
+    <Compile Include="plyer\platforms\android\tts.py" />
+    <Compile Include="plyer\platforms\android\uniqueid.py" />
+    <Compile Include="plyer\platforms\android\vibrator.py" />
+    <Compile Include="plyer\platforms\android\__init__.py" />
+    <Compile Include="plyer\platforms\ios\accelerometer.py" />
+    <Compile Include="plyer\platforms\ios\battery.py" />
+    <Compile Include="plyer\platforms\ios\compass.py" />
+    <Compile Include="plyer\platforms\ios\email.py" />
+    <Compile Include="plyer\platforms\ios\gps.py" />
+    <Compile Include="plyer\platforms\ios\gyroscope.py" />
+    <Compile Include="plyer\platforms\ios\tts.py" />
+    <Compile Include="plyer\platforms\ios\uniqueid.py" />
+    <Compile Include="plyer\platforms\ios\__init__.py" />
+    <Compile Include="plyer\platforms\linux\accelerometer.py" />
+    <Compile Include="plyer\platforms\linux\battery.py" />
+    <Compile Include="plyer\platforms\linux\email.py" />
+    <Compile Include="plyer\platforms\linux\filechooser.py" />
+    <Compile Include="plyer\platforms\linux\notification.py" />
+    <Compile Include="plyer\platforms\linux\tts.py" />
+    <Compile Include="plyer\platforms\linux\uniqueid.py" />
+    <Compile Include="plyer\platforms\linux\__init__.py" />
+    <Compile Include="plyer\platforms\macosx\accelerometer.py" />
+    <Compile Include="plyer\platforms\macosx\battery.py" />
+    <Compile Include="plyer\platforms\macosx\email.py" />
+    <Compile Include="plyer\platforms\macosx\filechooser.py" />
+    <Compile Include="plyer\platforms\macosx\libs\osx_motion_sensor.py" />
+    <Compile Include="plyer\platforms\macosx\libs\__init__.py" />
+    <Compile Include="plyer\platforms\macosx\notification.py" />
+    <Compile Include="plyer\platforms\macosx\tts.py" />
+    <Compile Include="plyer\platforms\macosx\uniqueid.py" />
+    <Compile Include="plyer\platforms\macosx\__init__.py" />
+    <Compile Include="plyer\platforms\win\battery.py" />
+    <Compile Include="plyer\platforms\win\email.py" />
+    <Compile Include="plyer\platforms\win\filechooser.py" />
+    <Compile Include="plyer\platforms\win\libs\balloontip.py" />
+    <Compile Include="plyer\platforms\win\libs\batterystatus.py" />
+    <Compile Include="plyer\platforms\win\libs\win_api_defs.py" />
+    <Compile Include="plyer\platforms\win\libs\__init__.py" />
+    <Compile Include="plyer\platforms\win\notification.py" />
+    <Compile Include="plyer\platforms\win\tts.py" />
+    <Compile Include="plyer\platforms\win\uniqueid.py" />
+    <Compile Include="plyer\platforms\win\__init__.py" />
+    <Compile Include="plyer\platforms\__init__.py" />
+    <Compile Include="plyer\tools\pep8checker\pep8.py" />
+    <Compile Include="plyer\tools\pep8checker\pep8kivy.py" />
+    <Compile Include="plyer\utils.py" />
+    <Compile Include="plyer\__init__.py" />
+    <Compile Include="setup.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="examples\accelerometer\basic\accelerometertest.kv" />
+    <Content Include="examples\accelerometer\using_graph\accelerometerdemo.kv" />
+    <Content Include="examples\accelerometer\using_graph\libs\garden\garden.graph\graph.png" />
+    <Content Include="examples\accelerometer\using_graph\libs\libs\garden\garden.graph\graph.png" />
+    <Content Include="examples\accelerometer\using_graph\Screenshot_Android_4.3.png" />
+    <Content Include="examples\compass\compasstest.kv" />
+    <Content Include="examples\notification\notificationdemo.kv" />
+    <Content Include="examples\notification\plyer-icon.ico" />
+    <Content Include="examples\notification\plyer-icon.png" />
+    <Content Include="examples\rotation\rotationtest.kv" />
+    <Content Include="examples\text2speech\text2speechdemo.kv" />
+    <Content Include="plyer\tools\pep8checker\pep8base.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="docs\" />
+    <Folder Include="docs\source" />
+    <Folder Include="examples\" />
+    <Folder Include="examples\accelerometer\" />
+    <Folder Include="examples\accelerometer\basic" />
+    <Folder Include="examples\accelerometer\using_graph" />
+    <Folder Include="examples\accelerometer\using_graph\libs\" />
+    <Folder Include="examples\accelerometer\using_graph\libs\garden\" />
+    <Folder Include="examples\accelerometer\using_graph\libs\garden\garden.graph" />
+    <Folder Include="examples\accelerometer\using_graph\libs\libs\" />
+    <Folder Include="examples\accelerometer\using_graph\libs\libs\garden\" />
+    <Folder Include="examples\accelerometer\using_graph\libs\libs\garden\garden.graph" />
+    <Folder Include="examples\audio" />
+    <Folder Include="examples\compass" />
+    <Folder Include="examples\email" />
+    <Folder Include="examples\gps" />
+    <Folder Include="examples\notification" />
+    <Folder Include="examples\orientation" />
+    <Folder Include="examples\rotation" />
+    <Folder Include="examples\sms" />
+    <Folder Include="examples\text2speech" />
+    <Folder Include="examples\vibrator" />
+    <Folder Include="plyer" />
+    <Folder Include="plyer\facades" />
+    <Folder Include="plyer\platforms" />
+    <Folder Include="plyer\platforms\android" />
+    <Folder Include="plyer\platforms\ios" />
+    <Folder Include="plyer\platforms\linux" />
+    <Folder Include="plyer\platforms\macosx" />
+    <Folder Include="plyer\platforms\macosx\libs" />
+    <Folder Include="plyer\platforms\win" />
+    <Folder Include="plyer\platforms\win\libs" />
+    <Folder Include="plyer\tools\" />
+    <Folder Include="plyer\tools\pep8checker" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
